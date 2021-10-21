@@ -1,7 +1,10 @@
 import React, { Component } from "react";
+
 import { reduxForm, Field } from "redux-form";
+
 import { FormInput, FormButton } from "../formFields";
 import Details from "../details";
+
 import history from "../../history";
 
 class SignUpForm extends Component {
@@ -11,20 +14,16 @@ class SignUpForm extends Component {
       {
         _id: 0,
         title: "At least 6 characters",
-        onClick: () => history.push("/signup"),
       },
       {
         _id: 1,
         title: "At least one number",
-        onClick: () => console.log("forgot email"),
       },
       {
         _id: 2,
         title: "At least one symbol",
-        onClick: () => console.log("forgot password"),
       },
     ];
-
     return (
       <form onSubmit={handleSubmit} className={`${className} sign-up-form`}>
         <Field
@@ -71,7 +70,7 @@ class SignUpForm extends Component {
         />
         <Field
           className="sign-up-form__back"
-          onClick={() => history.push("/signin")}
+          onClick={() => history.push("/")}
           type="button"
           title="Back"
           name="back"
@@ -89,7 +88,7 @@ class SignUpForm extends Component {
 }
 
 SignUpForm = reduxForm({
-  form: "SignInForm",
+  form: "SignUpForm",
 })(SignUpForm);
 
 export default SignUpForm;
