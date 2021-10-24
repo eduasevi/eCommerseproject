@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+
 import { connect } from "react-redux";
 import * as actions from "../../actions";
-import AccountInformation from "./accountinformation";
+
+import AccountInformation from "./accountInformation";
 import PurchaseHistory from "./purchaseHistory";
 
 class Account extends Component {
@@ -9,8 +11,8 @@ class Account extends Component {
     const headerLinks = [
       {
         _id: 0,
-        title: "shop",
-        path: "/path",
+        title: "Shop",
+        path: "/shop",
       },
       {
         _id: 1,
@@ -22,17 +24,18 @@ class Account extends Component {
     const navbarLinks = [
       {
         _id: 0,
-        title: "Purchased History",
-        active: false,
+        title: "Purchase History",
+        active: true,
         component: <PurchaseHistory />,
       },
       {
         _id: 1,
         title: "Account Information",
-        active: true,
+        active: false,
         component: <AccountInformation />,
       },
     ];
+
     this.props.setHeaderLinks(headerLinks);
     this.props.setNavbarLinks(navbarLinks);
   }
@@ -50,7 +53,7 @@ class Account extends Component {
   }
 
   render() {
-    return <div>{this.renderContent()}</div>;
+    return <div className="account">{this.renderContent()}</div>;
   }
 }
 
